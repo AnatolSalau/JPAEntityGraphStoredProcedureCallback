@@ -10,6 +10,12 @@
 
     https://sky.pro/wiki/sql/vyzov-khranimykh-protsedur-iz-java-s-pomoschyu-jpa-i-callable-statement/
 
+### 3. JPA stored procedure Baeldung
+
+    https://www.baeldung.com/spring-data-jpa-stored-procedures
+
+
+
 ### 4. Наследование Entity в Hibernate - из диплома TeachMeSkills
     
     https://github.com/AnatolSalau/TMS_C14onl_CourseProject_Salov_A_A
