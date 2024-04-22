@@ -57,4 +57,8 @@ public class ClientService {
         }
         return clients;
     }
+
+    public List<Client> findByNameContaining(String userName){
+        return clientRepository.findByFullNameContaining(userName);
+    }
 }
