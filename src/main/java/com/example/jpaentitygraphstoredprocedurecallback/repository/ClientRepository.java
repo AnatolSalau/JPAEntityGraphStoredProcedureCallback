@@ -12,5 +12,7 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
        private List<EmailAddress> emailAddresses; -- name that we put in attributePaths = "emailAddresses"
        */
       //@EntityGraph(type = EntityGraph.EntityGraphType.FETCH, attributePaths = "emailAddresses")
+
+      @EntityGraph(type = EntityGraph.EntityGraphType.FETCH, value = "client_entity-graph")
       List<Client> findByFullNameContaining(String name);
 }

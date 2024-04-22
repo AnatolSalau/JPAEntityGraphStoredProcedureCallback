@@ -8,8 +8,14 @@ import java.util.List;
 
 @Data
 @NoArgsConstructor
+
 @Entity
 @Table(name = "client")
+/**
+ * @OneToMany(cascade = CascadeType.ALL, mappedBy = "client")
+ * private List<EmailAddress> emailAddresses --> that we put in attributeNodes = @NamedAttributeNode("emailAddresses");
+ * */
+@NamedEntityGraph(name = "client_entity-graph", attributeNodes = @NamedAttributeNode("emailAddresses"))
 public class Client {
     @Id
     @Column(name = "id")
