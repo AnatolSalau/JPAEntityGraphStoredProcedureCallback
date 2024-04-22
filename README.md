@@ -2,6 +2,10 @@
 
     https://habr.com/ru/articles/714704/
 
+### 1.1 Native query для поиска Клиента с загрузкой за один запрос
+
+### 1.2 JPQL для поиска Клиента с загрузкой за один запрос
+
 ### 2. Хранимые процедуры, функции и триггеры на Java
 
     https://habr.com/ru/companies/redsoft/articles/699732/
