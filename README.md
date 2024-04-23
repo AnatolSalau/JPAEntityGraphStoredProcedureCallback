@@ -2,10 +2,6 @@
 
     https://habr.com/ru/articles/714704/
 
-### 1.1 Native query для поиска Клиента с загрузкой за один запрос
-
-    https://stackoverflow.com/questions/66071165/how-to-pass-parameters-in-a-native-query-jpa
-
 ### 1.2 JPQL для поиска Клиента с загрузкой за один запрос
 
 ### 2. Хранимые процедуры, функции и триггеры на Java

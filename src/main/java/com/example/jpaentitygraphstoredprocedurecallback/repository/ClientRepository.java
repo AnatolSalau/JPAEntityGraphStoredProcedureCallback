@@ -4,6 +4,7 @@ import com.example.jpaentitygraphstoredprocedurecallback.entity.Client;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -18,8 +19,7 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
       List<Client> findByFullNameContaining(String name);
 
       @Query(
-            value = "SELECT * FROM client c WHERE full_name LIKE ('')",
-            nativeQuery = true)
-      List<Client> findByFullNameContainingNative(String name);
+            value = "SELECT  cl FROM client   WHERE full_name =:name ")
+      List<Client> findByFullNameContainingNative(@Param("name")String name);
 
 }
