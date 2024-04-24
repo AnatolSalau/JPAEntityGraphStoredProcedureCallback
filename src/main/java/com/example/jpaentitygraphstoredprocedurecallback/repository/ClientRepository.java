@@ -18,8 +18,8 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
       @EntityGraph(type = EntityGraph.EntityGraphType.FETCH, value = "client_entity-graph")
       List<Client> findByFullNameContaining(String name);
 
-      @Query(
-            value = "SELECT  cl FROM client   WHERE full_name =:name ")
-      List<Client> findByFullNameContainingNative(@Param("name")String name);
+/*      @Query(
+            value = "SELECT  cl FROM client   WHERE full_name =:name ")*/
+/*      List<Client> findByFullNameContainingNative(@Param("name")String name);*/
 
 }
