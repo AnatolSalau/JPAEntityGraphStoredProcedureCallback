@@ -33,5 +33,4 @@ public class User {
             }
             this.details = details;
       }
-// getters/setters/constructors
 }

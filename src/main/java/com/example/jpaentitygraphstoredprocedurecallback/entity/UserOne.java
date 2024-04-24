@@ -24,14 +24,7 @@ public class UserOne {
       private UserDetailsOne details;
 
       public void setDetails(UserDetailsOne details) {
-/*            if (details == null) {
-                  if (this.details != null){
-                        this.details.setUser(null);
-                  }
-            } else {
-                  details.setUser(this);
-            }*/
+
             this.details = details;
       }
-// getters/setters/constructors
 }

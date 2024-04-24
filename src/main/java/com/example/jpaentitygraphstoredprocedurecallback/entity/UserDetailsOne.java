@@ -14,9 +14,4 @@ public class UserDetailsOne {
       @Id
       private long id;
       private String phone;
-/*      @OneToOne(fetch = FetchType.LAZY)
-      @MapsId
-      @JoinColumn(name = "id")
-      private UserOne user;*/
-// getters/setters/constructors
 }

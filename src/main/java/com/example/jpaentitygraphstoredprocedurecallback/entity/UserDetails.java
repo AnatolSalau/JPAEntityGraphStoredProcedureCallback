@@ -18,5 +18,4 @@ public class UserDetails {
       @MapsId
       @JoinColumn(name = "id")
       private User user;
-// getters/setters/constructors
 }
