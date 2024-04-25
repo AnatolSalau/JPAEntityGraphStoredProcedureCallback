@@ -18,4 +18,7 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
       @EntityGraph(type = EntityGraph.EntityGraphType.FETCH, value = "client_entity-graph")
       List<Client> findByFullNameContaining(String name);
 
+      @Query("select cl from Client cl join EmailAddress em on em.client = cl where cl.fullName like :name")
+      List<Client> findByFullNameContainingJPQL(@Param("name") String name);
+
 }

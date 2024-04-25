@@ -88,4 +88,8 @@ public class ClientService {
         return resultList;
     }
 
+    public List<Client> findByNameContainingJPQL(String userName) {
+
+    }
+
 }
