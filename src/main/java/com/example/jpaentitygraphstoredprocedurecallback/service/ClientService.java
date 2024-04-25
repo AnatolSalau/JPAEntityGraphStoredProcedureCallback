@@ -4,9 +4,17 @@ import com.example.jpaentitygraphstoredprocedurecallback.entity.Client;
 import com.example.jpaentitygraphstoredprocedurecallback.entity.EmailAddress;
 import com.example.jpaentitygraphstoredprocedurecallback.repository.ClientRepository;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Query;
 import net.datafaker.Faker;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,6 +22,9 @@ import java.util.List;
 
 @Service
 public class ClientService {
+    @PersistenceContext
+    private EntityManager entityManager;
+
     private final ClientRepository clientRepository;
 
     @Autowired
@@ -59,6 +70,22 @@ public class ClientService {
     }
 
     public List<Client> findByNameContaining(String userName){
-        return clientRepository.findByFullNameContaining(userName);
+        List<Client> byFullNameContaining = clientRepository.findByFullNameContaining(userName);
+        System.out.println("RESULT------------------------------------");
+        System.out.println(byFullNameContaining);
+        System.out.println("RESULT------------------------------------");
+        return byFullNameContaining;
     }
+
+    @Transactional()
+    public List<Client> findByNameContainingEmNative(String userName) {
+        Query nativeQuery = entityManager.createNativeQuery(" SELECT * FROM client WHERE full_name like CONCAT('%', ?1, '%') ", Client.class);
+        nativeQuery.setParameter(1,userName);
+        List resultList = nativeQuery.getResultList();
+        System.out.println("RESULT------------------------------------");
+        System.out.println(resultList);
+        System.out.println("RESULT------------------------------------");
+        return null;
+    }
+
 }

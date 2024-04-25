@@ -14,10 +14,4 @@ class ClientRepositoryTest {
       @Autowired
       ClientRepository clientRepository;
 
-      @Test
-      void findByFullNameContainingNative() {
-            String ren = "Marcelene Funk";
-            List<Client> result = clientRepository.findByFullNameContainingNative(ren);
-            System.out.println(result);
-      }
 }
