@@ -29,9 +29,16 @@ public class ClientController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping()
+    @GetMapping("/by_name")
     public List<Client> findByNameContaining(@RequestParam String clientName) {
         List<Client> clients = clientService.findByNameContaining(clientName);
+        return clients;
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/by_name_native")
+    public List<Client> findByNameContainingEmNative(@RequestParam String clientName) {
+        List<Client> clients = clientService.findByNameContainingEmNative(clientName);
         return clients;
     }
 

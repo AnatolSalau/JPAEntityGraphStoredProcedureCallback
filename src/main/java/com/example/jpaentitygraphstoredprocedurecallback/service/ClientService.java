@@ -71,21 +71,21 @@ public class ClientService {
 
     public List<Client> findByNameContaining(String userName){
         List<Client> byFullNameContaining = clientRepository.findByFullNameContaining(userName);
-        System.out.println("RESULT------------------------------------");
+        System.out.println("RESULT findByNameContaining ------------------------------------");
         System.out.println(byFullNameContaining);
-        System.out.println("RESULT------------------------------------");
+        System.out.println("RESULT findByNameContaining ------------------------------------");
         return byFullNameContaining;
     }
 
     @Transactional()
     public List<Client> findByNameContainingEmNative(String userName) {
-        Query nativeQuery = entityManager.createNativeQuery(" SELECT * FROM client WHERE full_name like CONCAT('%', ?1, '%') ", Client.class);
+        Query nativeQuery = entityManager.createNativeQuery(" SELECT id, full_name, mobile_number, (SELECT email FROM email_address WHERE client_id = id) FROM client  WHERE full_name like CONCAT('%', ?1, '%') ", Client.class);
         nativeQuery.setParameter(1,userName);
         List resultList = nativeQuery.getResultList();
-        System.out.println("RESULT------------------------------------");
+        System.out.println("RESULT findByNameContainingEmNative ------------------------------------");
         System.out.println(resultList);
-        System.out.println("RESULT------------------------------------");
-        return null;
+        System.out.println("RESULT findByNameContainingEmNative ------------------------------------");
+        return resultList;
     }
 
 }
